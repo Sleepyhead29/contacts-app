@@ -1,19 +1,18 @@
-import './App.css';
-
+import "./App.css";
+import { useState } from "react";
+import ContactsList from "./ContactsList";
+import ContactInfo from "./ContactInfo";
 function App() {
+  // Contacts objects
+  const [contactsList, setContactsList] = useState([
+    { id: 1, name: "John", phone: "514 514 5144", moreInfoDisplayed: false },
+    { id: 2, name: "nazeef", phone: "438 989 0000", moreInfoDisplayed: false },
+    { id: 3, name: "bolo bolo", phone: "123 456 7890", moreInfoDisplayed: false },
+  ]);
   return (
     <div className="App">
-     <div className="contacts-list">
-      <h1>My Contacts</h1>
-      <form action="" method="get">
-        <input type="text" placeholder='Search' />
-      </form>
-      <ul>
-        <li>nazeef Suleman</li>
-        <li>Zen Fae</li>
-        <li>amy</li>
-      </ul>
-     </div>
+      <ContactsList contactsList={contactsList} setContactsList ={setContactsList}/>
+      <ContactInfo />
     </div>
   );
 }
